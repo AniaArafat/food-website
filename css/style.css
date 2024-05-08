@@ -1,0 +1,409 @@
+/* ! ----------------global class-------------- */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* !---------------navbbar----------------- */
+.navbar{ 
+  background-color: rgb(213, 207, 207);
+  position: sticky;
+  top: 0;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo a{
+   color:black;
+   text-decoration: none;
+   letter-spacing: 2px;
+  
+}
+
+nav .logo a h3{
+  letter-spacing: normal;
+  font-size: 14px;
+  color:rgba(0, 0, 0, 0.427)
+}
+
+.menubar ul li{
+  list-style-type: none;
+  display: inline-block;
+  position: relative;
+}
+
+.menubar ul li a{
+   text-decoration: none;
+   padding: 30px 20px;
+   color:rgba(55, 56, 56, 0.658);
+   font-size: 14px;
+   display: block;
+   cursor: pointer;
+}
+.menubar ul  ul{
+  position: absolute;
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  top: 90px;
+  visibility: hidden ;
+  transition: .2s ease-in-out;
+}
+.menubar ul li i{
+  transition: .3s ease-in-out;
+  cursor: pointer;
+  font-size: 12px;
+  color:rgba(55, 56, 56, 0.658);
+}
+
+.menubar ul ul li a{
+   padding: 10px 20px;
+}
+.menubar ul ul li:hover{
+  background: rgb(235, 219, 219);
+}
+.menubar ul li:hover ul{
+  visibility: visible;
+  top: 75px;
+}
+.menubar ul li:hover .fa-caret-down{
+  transform: rotate(180deg);
+}
+.menubar .search{
+  display: none;
+}
+
+
+.navbar ul .nav-icon{
+  display: flex;
+  gap: 10px;
+}
+
+
+
+.login{
+  position: relative;
+}
+
+.navbar ul li .login a{
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px;
+  top:30px;
+  left:-60px;
+  visibility: hidden;
+  transition: .3s ease-in-out;
+}
+ 
+.navbar ul li .login:hover a{
+   visibility:visible;
+   top: 20px;
+}
+
+.navbar ul li a:hover, .navbar  i:hover, .navbar ul li a:hover i {
+  color:blue
+}
+
+.shopping-cart{
+  padding: 30px 20px;
+   color:rgba(76, 80, 80, 0.688);
+   font-size: 14px;
+   display: none;
+   cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*!------------------------dropdwon menubar ------------- */
+.dropdwon-menubar{
+  display: none;
+}
+.dropdwon-menubar [id^="btn-"]{
+  display: none;
+}
+
+[class^="bar"] {
+  width: 25px;
+  height: 2.5px;
+  background-color: rgb(0, 0, 0);
+  margin: 5px;
+  position: relative;
+  transition: .3s ease-in-out;
+
+  z-index: 1;
+}
+
+.dropdwon-menubar .bar-midle{
+  height: .5px;
+} 
+
+.dropdwon-menubar label{
+  cursor: pointer;
+  z-index: 1;
+}
+
+.dropdwon-menubar input:checked~ label .bar-top{
+  transform: rotate(45deg);
+  top:4px;
+  background-color: red;
+  box-shadow: 0px 2px 6px rgba(255, 255, 255, 0.39);
+}
+
+.dropdwon-menubar input:checked~ label .bar-midle{
+  display: none;
+}
+
+.dropdwon-menubar input:checked~ label .bar-bottom{
+  transform: rotate(-45deg);
+  bottom: 4px;
+  background-color: red;
+}
+ 
+  .dropdwon-menubar .menu{
+     
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    left: -45%;
+    min-height: 100%;
+    transition: .3s ease-in-out; 
+    top: 76px;
+    background-color: brown;
+  }
+  .dropdwon-menubar .menu ul{
+    min-height: 100%;
+    background-color: brown;
+    list-style-type: none;
+
+  }
+  .dropdwon-menubar .menu ul li{
+    line-height: 40px;
+    border-bottom: 1px solid black;
+  }
+
+
+  .dropdwon-menubar .menu ul li:last-child{
+    border-bottom: none;
+  } 
+  .dropdwon-menubar .menu ul li a, .btn-order{
+    color: black;
+    padding-left: 20px;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+   
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .dropdwon-menubar .menu ul li a:hover, .btn-order:hover, .dropdwon-menubar .menu ul li a .active{
+    background-color: rgb(206, 65, 65);
+  }
+  .dropdwon-menubar .menu ul li .active{
+    color:aqua;
+    border-left-color: aqua;
+    background-color: rgb(206, 65, 65);
+    border-left: 3px solid aqua;
+  }
+
+  .dropdwon-menubar .menu ul ul{
+    position: static;
+    display: none;
+  }
+
+  .dropdwon-menubar .menu ul ul li{
+    border-bottom: none;
+  }
+
+  .dropdwon-menubar .menu ul ul li a{
+    font-size: 14px;
+    padding-left: 40px;
+  }
+  .dropdwon-menubar #btn-toggle:checked~ .menu{
+    left:0;
+  }
+  .dropdwon-menubar #btn-order:checked~ ul{
+    display: block;
+  }
+
+  .btn-order{
+    position: relative;
+  }
+  .fa-caret-down{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:80%;
+    transition: transform .3s;
+  }
+  .dropdwon-menubar #btn-order:checked~ .btn-order .fa-caret-down{
+     transform: translateY(-50%) rotate(-180deg);
+  }
+
+
+
+
+
+/*!----------section One-----------------*/
+
+
+.sectionone{
+
+  background-color: red;
+  background-image: url('as')
+  
+}
+
+
+
+
+
+
+
+
+
+/*!------------------------Footer-------------------*/
+footer{
+  background-color: rgb(129, 123, 123);
+  width: 100%;
+  
+}
+
+footer .footer-text{
+  text-align: justify;
+}
+footer .last-text{
+  text-align: center;
+  padding-block: 10px;
+  border-top: 1px solid rgb(156, 155, 155);
+}
+
+  footer .container{
+    padding-block: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20%;
+  }
+ footer .container .footer-header{
+   font-size: 20px;
+   letter-spacing: 1px;
+   font-weight: bold;
+   padding-block: 10px;
+   
+ }
+ footer .container .container-box{
+   
+  
+ }
+
+ footer .container a{
+   text-decoration: none;
+   padding-block: 5px;
+    
+   display: block;
+ }
+/* !----------------------------------mediaQuary------------------- */
+
+
+@media (max-width:1250px){
+.container{
+  max-width: 1000px;
+}
+}
+
+@media (max-width:1050px){
+  .container{
+    max-width: 900px;
+  }
+}
+
+  @media (max-width:950px){
+    .container{
+      max-width: 750px;
+    }
+  }
+  @media (max-width:800px){
+    .dropdwon-menubar{
+      display: block;
+    }
+    .container{
+       max-width: 700px;
+    }
+    .menubar{
+      display: none;
+    }
+    .logo{
+      text-align: center;
+    }
+    .shopping-cart{
+      display: block;
+    }
+    }
+
+    @media (max-width:700px){
+      .container{
+        max-width: 600px;
+      }
+    }
+    @media (max-width:600px){
+      .container{
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width:500px){
+      .container{
+        max-width: 400px;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
